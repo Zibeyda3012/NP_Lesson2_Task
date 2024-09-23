@@ -6,19 +6,20 @@ namespace Server;
 
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
-    private int port;
+    private string imagePath;
 
-    public int Port { get => port; set { port = value; OnPropertyChanged(); } }
-
+    public string ImagePath { get => imagePath; set { imagePath = value; OnPropertyChanged(); } }
 
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = this;
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
 
+
+    //------------------------------------------------------------------------------------------------------
+
+    public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

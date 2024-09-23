@@ -6,45 +6,8 @@
         xmlns:local="clr-namespace:Server"
         xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="800">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel VerticalAlignment="Center">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Column="0" Content="IP" HorizontalAlignment="Center"  FontWeight="Bold" />
-                <TextBox Grid.Column="1" Text="{Binding Ip}"/>
-            </Grid>
-
-            <Grid Margin="0 10 0 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Column="0" Content="Port" HorizontalAlignment="Center"  FontWeight="Bold" />
-                <TextBox Grid.Column="1" Text="{Binding Port}"/>
-            </Grid>
-
-            <Grid Margin="0 10 0 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Column="0" Content="File" HorizontalAlignment="Center"  FontWeight="Bold" />
-                <TextBox Grid.Column="1" Text="{Binding FilePath}"/>
-                <Button Grid.Column="2" Content="Open File" FontSize="18" Margin="30 0 30 0" Command="{Binding OpenFileCommand}"/>
-            </Grid>
-
-            <Button Content="Send" FontSize="18" Width="300" Margin="0 60 0 0" Command="{Binding SendCommand}"/>
-
-        </StackPanel>
+        <Image Source="{Binding ImagePath}"/>
     </Grid>
 </Window>
