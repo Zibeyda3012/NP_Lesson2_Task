@@ -1,5 +1,4 @@
-﻿using Client.Models;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.ComponentModel;
 using System.IO;
 using System.Net;
@@ -36,20 +35,21 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var ip = IPAddress.Parse(Ip);
             var endPoint = new IPEndPoint(ip, Port);
 
-            var client = new TcpClient();
+            var server = new TcpClient();
 
             try
             {
-                client.Connect(endPoint);
+                server.Connect(endPoint);
 
-                if (client.Connected)
+                if (server.Connected)
                 {
                     while (true)
                     {
-                        var stream = client.GetStream();
-                        var writer = new StreamWriter(stream);
+                        using var stream = server.GetStream();
 
-                        var data = new FileData(FilePath, Port, Ip);
+                        using var writer = new StreamWriter(stream);
+                        writer.Write(FilePath);
+                        writer.Flush();
 
                     }
 

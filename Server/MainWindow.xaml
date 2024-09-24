@@ -7,7 +7,19 @@
         xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Image Source="{Binding ImagePath}"/>
-    </Grid>
+    <StackPanel>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Port: " FontSize="17" FontWeight="SemiBold"/>
+            <TextBox Name="portBox" Grid.Column="1" Width="150" HorizontalAlignment="Left" />
+            <Button Name="startBtn" Grid.Column="2" Content="Start Server" FontSize="17" Click="startBtn_Click"/>
+        </Grid>
+
+        <Image Source="{Binding ImagePath}" Margin="20"/>
+    </StackPanel>
 </Window>
